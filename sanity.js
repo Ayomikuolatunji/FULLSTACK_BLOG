@@ -13,3 +13,5 @@ export const config ={
     apiVersion:"v1",
     useCdn: process.env.NODE_ENV==="production",
 }
+
+export const sanityClient=createClient(config)
