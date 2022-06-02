@@ -8,8 +8,8 @@ import {
 from "next-sanity"
 
 export const config ={
-    dataset: "production",
-    projectId: "5ejqjqjq",
+    dataset: process.env.SANITY_DATASET,
+    projectId: process.env.SANITY_PROJECTID,
     apiVersion:"v1",
-    useCdn: true,
+    useCdn: process.env.NODE_ENV==="production",
 }
