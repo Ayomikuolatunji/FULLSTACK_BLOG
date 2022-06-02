@@ -13,7 +13,7 @@ const Hero:React.FC = () => {
 
                 </p>
             </div>
-            <div className="right w-[50%] text-center">
+            <div className="right w-[50%] text-center sm:block hidden">
                 <h1 className='text-7xl text-[#e5ff00]'>Fullstack</h1>
             </div>
             <h1 className='absolute bottom-0 left-[50%] translate-x-[-50%] text-white font-extrabold'>
