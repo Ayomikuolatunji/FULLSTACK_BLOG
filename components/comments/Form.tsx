@@ -12,8 +12,8 @@ const Form:React.FC = () => {
  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
 
-  const onSubmit: SubmitHandler<Inputs> = async(data) =>{
-      await fetch("/api/createComment", {
+  const onSubmit: SubmitHandler<Inputs> =(data) =>{
+     fetch("/api/createComment", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

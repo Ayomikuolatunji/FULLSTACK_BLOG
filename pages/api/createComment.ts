@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import SanityClientConstructor from "@sanity/client";
+import sanityclient from "@sanity/client";
 
 
 export const config ={
@@ -10,7 +10,22 @@ export const config ={
   token: process.env.SANITY_TOKEN
 }
 
-export default function  creatComment(req:NextApiRequest,res:NextApiResponse){
-  res.status(200).json({hello:'world'})
+export default async function  creatComment(req:NextApiRequest,res:NextApiResponse){
+  const {_id,username,email,text}=req.body;
+    try {
+       await sanityclient(config).create({
+         _type:"comment",
+         post:{
+           _type:"reference",
+           _ref:_id
+         },
+         username,
+          email,
+          text
+       })
+       res.status(200).json({"message":"comment created"})
+    } catch (error) {
+      res.status(500).json({error})
+    } 
 }
 
