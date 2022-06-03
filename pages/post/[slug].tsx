@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import PortableText from "react-portable-text"
+import Form from '../../components/comments/Form'
 import { sanityClient, urlFor } from '../../sanity'
 import Post from '../../typings'
 
@@ -34,6 +35,9 @@ const Slug:NextPage<props> = ({post}) => {
                      projectId="c3lbf9qu"
                      content={post.body}
                      serializers={{
+                      div:(props:any)=>{
+                        return <div className='mt-60'>{props.children}</div>
+                      },
                       h1: (props:any) => <h1 style={{ color: "red" }} {...props} />,
                       li: ({ children }:any) => <li className="special-list-item">{children}</li>
                         }
@@ -41,6 +45,7 @@ const Slug:NextPage<props> = ({post}) => {
                 />
             </article>
             <hr className='max-w-6xl mx-auto border border-green my-5'/>
+            <Form/>
           </main>
     </div>
   )
