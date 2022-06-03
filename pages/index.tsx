@@ -8,7 +8,7 @@ interface props {
   posts:[Post]
 }
 
-const Home: NextPage = (props:props) => {
+const Home: NextPage<props> = (props) => {
 
    console.log(props.posts)
   return (
