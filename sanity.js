@@ -3,9 +3,7 @@ import {
     createImageUrlBuilder,
     createCurrentUserHook
 
-}
-
-from "next-sanity"
+}from "next-sanity"
 
 export const config ={
     dataset: process.env.SANITY_DATASET,
@@ -15,4 +13,7 @@ export const config ={
 }
 
 export const sanityClient=createClient(config)
+
 export const urlFor=(source)=>createImageUrlBuilder(sanityClient).image(source)
+
+export const useCurrentUser=createCurrentUserHook(sanityClient)
