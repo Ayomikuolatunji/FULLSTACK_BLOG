@@ -3,10 +3,11 @@ import React from 'react'
 import PortableText from "react-portable-text"
 import Form from '../../components/comments/Form'
 import { sanityClient, urlFor } from '../../sanity'
-import Post from '../../typings/typings'
+import Post, { Comment } from '../../typings/typings'
 
 interface props{
   post:Post
+
 }
 
 const Slug:NextPage<props> = ({post}) => {
@@ -44,6 +45,17 @@ const Slug:NextPage<props> = ({post}) => {
                 />
             </article>
             <hr className='max-w-6xl mx-auto border border-green my-5'/>
+             <div className="comments">
+             {
+                post.comments.map((comment:Comment)=>{
+                  return <div className="comment" key={comment._id}>
+                    <div className="comment-header">
+                          {comment.comment}
+                    </div>
+                    </div>
+                })   
+             }
+             </div>
             <Form postId={post._id}/>
           </main>
     </div>
