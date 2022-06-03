@@ -3,7 +3,7 @@ import React from 'react'
 import PortableText from "react-portable-text"
 import Form from '../../components/comments/Form'
 import { sanityClient, urlFor } from '../../sanity'
-import Post from '../../typings'
+import Post from '../../typings/typings'
 
 interface props{
   post:Post
@@ -11,7 +11,6 @@ interface props{
 
 const Slug:NextPage<props> = ({post}) => {
   console.log(post);
-  console.log(post.body);
   return (
     <div className='p-4'>
           <main>
@@ -86,9 +85,13 @@ export const getStaticProps:GetStaticProps = async ({params}) => {
         publishedAt,
         mainImage,
         author ->{
-        name,
-        image
-      }
+           name,
+            image
+        },
+        'comments': * [
+          _type=="comment" && 
+          post._ref==^._id
+        ],
       }`
       const post = await sanityClient.fetch(query,{
         slug:params?.slug

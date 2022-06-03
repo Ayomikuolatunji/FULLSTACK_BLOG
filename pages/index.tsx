@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Hero from '../components/home/Hero'
 import Posts from '../components/posts/Posts'
 import {sanityClient,urlFor} from "../sanity"
-import Post from '../typings'
+import Post from '../typings/typings'
 
 interface props {
   posts:[Post]

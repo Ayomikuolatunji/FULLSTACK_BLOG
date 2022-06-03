@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import {urlFor} from "../../sanity"
-import Post from '../../typings'
+import Post from '../../typings/typings'
 
 
 
