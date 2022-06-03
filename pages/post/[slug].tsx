@@ -10,15 +10,16 @@ interface props{
 
 const Slug:NextPage<props> = ({post}) => {
   console.log(post);
+  console.log(post.body);
   return (
-    <div>
+    <div className='p-4'>
           <main>
           <img 
             src={urlFor(post.mainImage.asset).url()!} 
             alt="imag" 
-              className='h-60 object-cover  w-full group-hover:scale-105 transition-transform ease-in-out duration-200'
+              className='h-60 object-cover  w-full group-hover:scale-105 transition-transform ease-in-out duration-200 border'
             />
-            <article> 
+            <article className='max-w-5xl mx-auto'> 
                   <h3 className='text-lg font-bold'>{post.title}</h3>
                   <p>{post.description} by {post.author.name}</p>
                 <div className="div flex items-center space-x-3">
@@ -28,10 +29,18 @@ const Slug:NextPage<props> = ({post}) => {
                    </p>
                 </div>
                 <PortableText
-                     dataset={process.env.SANITY_DATASET}
+                     className='mt-7 img'
+                     dataset={"production"}
                      projectId="c3lbf9qu"
+                     content={post.body}
+                     serializers={{
+                      h1: (props:any) => <h1 style={{ color: "red" }} {...props} />,
+                      li: ({ children }:any) => <li className="special-list-item">{children}</li>
+                        }
+                     }
                 />
             </article>
+            <hr className='max-w-6xl mx-auto border border-green my-5'/>
           </main>
     </div>
   )
@@ -68,6 +77,7 @@ export const getStaticProps:GetStaticProps = async ({params}) => {
         title,
         description,
         slug,
+        body,
         publishedAt,
         mainImage,
         author ->{
