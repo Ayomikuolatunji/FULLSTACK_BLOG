@@ -8,14 +8,25 @@ type Inputs = {
     exampleRequired:string,
   };
 
-const Form:React.FC = () => {
- const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+interface propId{
+    postId:number
+}
 
+const Form:React.FC<propId> = ({postId}) => {
 
+ const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+
+  
   const onSubmit: SubmitHandler<Inputs> =(data) =>{
+     
+    const dataArr={
+        ...data,
+        postId:postId,
+    }
+
      fetch("/api/createComment", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(dataArr),
         headers: {
             "Content-Type": "application/json"
         }

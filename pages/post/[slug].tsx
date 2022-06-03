@@ -45,7 +45,7 @@ const Slug:NextPage<props> = ({post}) => {
                 />
             </article>
             <hr className='max-w-6xl mx-auto border border-green my-5'/>
-            <Form/>
+            <Form postId={post._id}/>
           </main>
     </div>
   )

@@ -11,13 +11,15 @@ export const config ={
 }
 
 export default async function  creatComment(req:NextApiRequest,res:NextApiResponse){
-  const {_id,username,email,comment}=req.body;
+  const {postId,username,email,comment}=req.body;
+
+   console.log(req.body);
     try {
        await sanityclient(config).create({
          _type:"comment",
          post:{
            _type:"reference",
-           _ref:_id
+           _ref:postId
          },
          username,
           email,
