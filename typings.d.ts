@@ -2,7 +2,9 @@ interface Post {
     _id:number,
     title:string,
     description:string,
-    slug:string,
+    slug:{
+        current:string
+    },
     mainImage:{
         asset:{
             url:string

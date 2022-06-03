@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Hero from '../components/home/Hero'
+import Posts from '../components/posts/Posts'
 import {sanityClient,urlFor} from "../sanity"
 import Post from '../typings'
 
@@ -8,9 +9,9 @@ interface props {
   posts:[Post]
 }
 
-const Home: NextPage<props> = (props) => {
+const Home: NextPage<props> = ({posts}) => {
 
-   console.log(props.posts)
+   console.log(posts)
   return (
     <div>
       <Head>
@@ -19,6 +20,7 @@ const Home: NextPage<props> = (props) => {
       </Head>
 
       <Hero/>
+      <Posts posts={posts}/>
     </div>
   )
 }
