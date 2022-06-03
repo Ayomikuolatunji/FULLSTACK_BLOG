@@ -11,7 +11,7 @@ export const config ={
 }
 
 export default async function  creatComment(req:NextApiRequest,res:NextApiResponse){
-  const {_id,username,email,text}=req.body;
+  const {_id,username,email,comment}=req.body;
     try {
        await sanityclient(config).create({
          _type:"comment",
@@ -21,7 +21,7 @@ export default async function  creatComment(req:NextApiRequest,res:NextApiRespon
          },
          username,
           email,
-          text
+          comment
        })
        res.status(200).json({"message":"comment created"})
     } catch (error) {
