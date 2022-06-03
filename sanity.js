@@ -15,3 +15,4 @@ export const config ={
 }
 
 export const sanityClient=createClient(config)
+export const urlFor=(source)=>createImageUrlBuilder(sanityClient).image(source)
