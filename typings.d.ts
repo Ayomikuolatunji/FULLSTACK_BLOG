@@ -16,8 +16,10 @@ interface Post {
         image:{
             url:string
         }
-    }
+    },
+    publishedAt:string,
     body:[object]
 }
+
 
 export default Post;
