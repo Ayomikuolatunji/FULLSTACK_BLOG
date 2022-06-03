@@ -13,7 +13,9 @@ interface Post {
     slug:string,
     author:{
         name:string,
-        image:string
+        image:{
+            url:string
+        }
     }
     body:[object]
 }
