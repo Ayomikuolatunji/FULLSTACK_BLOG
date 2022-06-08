@@ -1,9 +1,10 @@
 
 
 interface Post {
-    _id:number,
+    _id:number
     title:string,
-    description:string,
+    description:string
+    language:string
     slug:{
         current:string
     },
@@ -14,13 +15,13 @@ interface Post {
     },
     slug:string,
     author:{
-        name:string,
+        name:string
         image:{
             url:string
         }
     },
-    comments:Comment[],
-    publishedAt:string,
+    comments:Comment[]
+    publishedAt:string
     body:[object]
 }
 

@@ -16,12 +16,17 @@ const Posts:React.FC <props>= ({posts}) => {
         posts.map(post=>{
           return(
             <Link href={`/post/${post.slug.current}`} passHref key={post._id}>
-                <div className='group border rounded-lg'>
+                <div className='group border rounded-xl shadow-2xl'>
                   <img 
                   src={urlFor(post.mainImage.asset).url()!} 
                   alt="imag" 
-                    className='h-60 object-cover group-hover:scale-105 transition-transform ease-in-out duration-200'
+                    className='h-60 object-cover group-hover:scale-105 transition-transform ease-in-out duration-200 rounded-t-xl'
                   />
+                  <div className="langauge p-5">
+                    <span className=''>
+                      {post.language}
+                    </span>
+                  </div>
                  <div className='flex justify-between p-5 bg-white'>
                      <div>
                          <h3 className='text-lg font-bold'>{post.title}</h3>
